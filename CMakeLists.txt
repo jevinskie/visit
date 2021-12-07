@@ -7,8 +7,11 @@ if (NOT TARGET Catch2)
     add_subdirectory(catch2)
 endif()
 
-set(BENCHMARK_ENABLE_TESTING false)
-add_subdirectory(gbench)
+if (NOT TARGET benchmark)
+    set(BENCHMARK_ENABLE_TESTING false)
+    add_subdirectory(gbench)
+endif()
+
 
 set(VISIT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
