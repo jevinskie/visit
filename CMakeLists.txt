@@ -3,11 +3,11 @@ project(visit)
 
 set(CMAKE_CXX_STANDARD 17)
 
-if (NOT TARGET Catch2)
+if (NOT TARGET Catch2 AND BUILD_TESTING)
     add_subdirectory(catch2)
 endif()
 
-if (NOT TARGET benchmark)
+if (NOT TARGET benchmark AND ENABLE_BENCHMARKS)
     set(BENCHMARK_ENABLE_TESTING false)
     add_subdirectory(gbench)
 endif()
